@@ -7,6 +7,8 @@ class TimerApp:
     def __init__(self, root):
         self.root = root
         self.root.attributes('-topmost', True)
+        self.server_ip = socket.gethostbyname(socket.gethostname())
+        print(f"Серверный IP-адрес: {self.server_ip}")
 
         window_width = 150
         window_height = 80
