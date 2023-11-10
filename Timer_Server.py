@@ -43,7 +43,7 @@ class TimerApp:
 
         # Создаем серверный сокет для удаленного управления
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server_socket.bind(("127.0.0.1", 12345))  # Привяжите сокет к конкретному адресу и порту
+        self.server_socket.bind((self.server_ip, 12345))  # Привязка сокета к адресу и порту
         self.server_socket.listen(5)  # Ожидаем соединений от клиентов
 
         self.client_socket = None
