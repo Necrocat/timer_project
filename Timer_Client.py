@@ -5,7 +5,7 @@ class TimerClientApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Клиент Таймера")
-        self.root.geometry("280x250")
+        self.root.geometry("345x170")
         self.root.resizable(width=False, height=False)
 
 
@@ -16,32 +16,46 @@ class TimerClientApp:
         self.timer_duration.set("1200")  # Значение таймера по умолчанию (1200 секунд = 20 минут)
 
         self.server_ip_label = tk.Label(root, text="IP-адрес сервера:")
-        self.server_ip_label.pack()
+        #self.server_ip_label.pack()
+        self.server_ip_label.place(x=5, y=5)
+
         self.server_ip_entry = tk.Entry(root, textvariable=self.server_ip)
-        self.server_ip_entry.pack()
+        self.server_ip_entry.place(x=110,y=8)
+        #self.server_ip_entry.pack()
 
         self.server_port_label = tk.Label(root, text="Порт сервера:")
-        self.server_port_label.pack()
+        self.server_port.set("12345")
+        self.server_port_label.place(x=5,y=35)
+        #self.server_port_label.pack()
+
         self.server_port_entry = tk.Entry(root, textvariable=self.server_port)
-        self.server_port_entry.pack()
+        self.server_port_entry.place(x=110,y=35)
+        #self.server_port_entry.pack()
 
-        self.set_timer_label = tk.Label(root, text="Установить таймер (секунды):")
-        self.set_timer_label.pack()
+        self.set_timer_label = tk.Label(root, text="Set Timer (sec):")
+        #self.set_timer_label.pack()
+        self.set_timer_label.place(x=5,y=70)
+
         self.timer_duration_entry = tk.Entry(root, textvariable=self.timer_duration)
-        self.timer_duration_entry.pack()
+        self.timer_duration_entry.place(x=110,y=70)
+        #self.timer_duration_entry.pack()
 
-        self.set_timer_button = tk.Button(root, text="Установить таймер", command=self.set_timer)
-        self.set_timer_button.pack()
+        self.set_timer_button = tk.Button(root, text="Set Timer", command=self.set_timer, width=12)
+        self.set_timer_button.place(x=240,y=68)
+        #self.set_timer_button.pack()
 
-        self.connect_button = tk.Button(root, text="Подключиться", command=self.connect_to_server)
-        self.connect_button.pack()
+        self.connect_button = tk.Button(root, text="Подключиться", command=self.connect_to_server, height=3)
+        self.connect_button.place(x=240,y=4)
+        #self.connect_button.pack()
 
-        self.start_button = tk.Button(root, text="Старт", command=self.start_timer)
-        self.start_button.pack()
+        self.start_button = tk.Button(root, text="Старт", command=self.start_timer, height=3, width=20)
+        self.start_button.place(x=5,y=100)
+        #self.start_button.pack()
         self.start_button.config(state=tk.DISABLED)
 
-        self.stop_button = tk.Button(root, text="Стоп", command=self.stop_timer)
-        self.stop_button.pack()
+        self.stop_button = tk.Button(root, text="Стоп", command=self.stop_timer, height=3, width=20)
+        self.stop_button.place(x=184,y=100)
+        #self.stop_button.pack()
         self.stop_button.config(state=tk.DISABLED)
 
 
